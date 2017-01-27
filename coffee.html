@@ -58,14 +58,14 @@
 
     myImage.attr("src", "static/coffee_beans.jpg");
 
-    var myRevenueMessage = document.getElementById("revenue");
-
 
     function makeCoffee(drinkType) {
         drinksOrdered.push(drinkType);
         console.log(drinksOrdered);
-        revenue(drinkType);
-
+        
+        total += prices[drinkType];
+        $('#revenue').html("$" + total.toFixed(2).toString());
+        
         myImage.attr("src", "static/coffee_machine.jpg");
         setTimeout(function() { myImage.attr("src", "static/coffee_mug.jpg"); }, 1500);
         setTimeout(function() { myImage.attr("src", "static/coffee_beans.jpg"); }, 4000);
@@ -85,14 +85,6 @@
         "latte": 4.15,
         "hot chocolate": 2.50
     };
-
-    function revenue(drinkType) {
-        total += prices[drinkType];
-        $('#revenue').html("$" + total.toFixed(2).toString());
-    }
-
-
-
 
 </script>
 
