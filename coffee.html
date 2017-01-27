@@ -66,9 +66,15 @@
         total += prices[drinkType];
         $('#revenue').html("$" + total.toFixed(2).toString());
         
-        myImage.attr("src", "static/coffee_machine.jpg");
-        setTimeout(function() { myImage.attr("src", "static/coffee_mug.jpg"); }, 1500);
-        setTimeout(function() { myImage.attr("src", "static/coffee_beans.jpg"); }, 4000);
+        myImage.fadeOut(1000);
+        setTimeout(function() { myImage.attr("src", "static/coffee_machine.jpg"); }, 1000);
+        myImage.fadeIn(1000);
+        setTimeout(function() { myImage.fadeOut(1000);}, 5000);
+        setTimeout(function() { myImage.attr("src", "static/coffee_mug.jpg"); }, 6000);
+        setTimeout(function() { myImage.fadeIn(1000);}, 6000);
+        setTimeout(function() { myImage.fadeOut(1000);}, 9000);
+        setTimeout(function() { myImage.attr("src", "static/coffee_beans.jpg"); }, 10000);
+        setTimeout(function() { myImage.fadeIn(1000);}, 10000);
     }
 
     myImage.on("click", function() {return makeCoffee("brew");});
